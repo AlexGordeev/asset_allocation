@@ -15,3 +15,17 @@ class Currency(models.Model):
         ordering = ('name',)
         verbose_name = 'Валюта'
         verbose_name_plural = 'Валюты'
+
+
+class StockExchange(models.Model):
+    """Биржа"""
+    name = models.CharField(max_length=20, verbose_name='Наименование')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'stock_exchange'
+        ordering = ('name',)
+        verbose_name = 'Биржа'
+        verbose_name_plural = 'Биржи'

@@ -11,7 +11,15 @@ class CurrencyAdmin(admin.ModelAdmin):
     search_fields = ('name', 'iso_code')
 
 
+class StockExchangeAdmin(admin.ModelAdmin):
+    """Представление биржи в админке"""
+    list_display = ('id', 'name')
+    list_display_links = ('id', 'name')
+    search_fields = ('name',)
+
+
 admin.site.register(models.Currency, CurrencyAdmin)
+admin.site.register(models.StockExchange, StockExchangeAdmin)
 
 admin.site.site_header = 'Размещение активов'
 admin.site.site_title = 'Размещение активов'
