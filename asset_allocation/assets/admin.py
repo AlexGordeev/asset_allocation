@@ -11,3 +11,6 @@ class CurrencyAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Currency, CurrencyAdmin)
+
+admin.site.site_header = 'Размещение активов'
+admin.site.site_title = 'Размещение активов'
