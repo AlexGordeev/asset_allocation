@@ -5,6 +5,7 @@ from assets import models
 
 
 class CurrencyAdmin(admin.ModelAdmin):
+    """Представление валюты в админке"""
     list_display = ('id', 'name', 'iso_code', 'symbol')
     list_display_links = ('id', 'name')
     search_fields = ('name', 'iso_code')
