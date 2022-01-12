@@ -43,3 +43,19 @@ class CountryGroup(models.Model):
         ordering = ('name',)
         verbose_name = 'Группа стран'
         verbose_name_plural = 'Группы стран'
+
+
+class Country(models.Model):
+    """Страна"""
+    name = models.CharField(max_length=25, verbose_name='Наименование')
+    flag = models.ImageField(upload_to='country_flags/', verbose_name='Флаг')
+    country_group = models.ForeignKey(CountryGroup, on_delete=models.PROTECT, verbose_name='Группа стран')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'country'
+        ordering = ('name',)
+        verbose_name = 'Страна'
+        verbose_name_plural = 'Страны'

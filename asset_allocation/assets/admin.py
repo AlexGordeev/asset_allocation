@@ -25,9 +25,17 @@ class CountryGroupAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
+class CountryAdmin(admin.ModelAdmin):
+    """Представление страны в админке"""
+    list_display = ('id', 'name', 'flag', 'country_group')
+    list_display_links = ('id', 'name')
+    search_fields = ('name', 'country_group')
+
+
 admin.site.register(models.Currency, CurrencyAdmin)
 admin.site.register(models.StockExchange, StockExchangeAdmin)
 admin.site.register(models.CountryGroup, CountryGroupAdmin)
+admin.site.register(models.Country, CountryAdmin)
 
 admin.site.site_header = 'Размещение активов'
 admin.site.site_title = 'Размещение активов'
