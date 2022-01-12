@@ -29,3 +29,17 @@ class StockExchange(models.Model):
         ordering = ('name',)
         verbose_name = 'Биржа'
         verbose_name_plural = 'Биржи'
+
+
+class CountryGroup(models.Model):
+    """Группа стран"""
+    name = models.CharField(max_length=25, verbose_name='Наименование')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'country_group'
+        ordering = ('name',)
+        verbose_name = 'Группа стран'
+        verbose_name_plural = 'Группы стран'
