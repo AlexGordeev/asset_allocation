@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
 
 
@@ -48,7 +49,11 @@ class CountryGroup(models.Model):
 class Country(models.Model):
     """Страна"""
     name = models.CharField(max_length=25, verbose_name='Наименование')
-    flag = models.ImageField(upload_to='country_flags/', verbose_name='Флаг')
+    flag = models.FileField(
+        upload_to='country_flags/',
+        validators=[FileExtensionValidator(['svg'])],
+        verbose_name='Флаг',
+    )
     country_group = models.ForeignKey(CountryGroup, on_delete=models.PROTECT, verbose_name='Группа стран')
 
     def __str__(self):
