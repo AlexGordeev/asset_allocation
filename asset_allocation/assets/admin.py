@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 
 
 from assets import models
@@ -27,9 +28,14 @@ class CountryGroupAdmin(admin.ModelAdmin):
 
 class CountryAdmin(admin.ModelAdmin):
     """Представление страны в админке"""
-    list_display = ('id', 'name', 'flag', 'country_group')
+    list_display = ('id', 'name', 'get_flag_image', 'country_group')
     list_display_links = ('id', 'name')
     search_fields = ('name', 'country_group')
+
+    def get_flag_image(self, obj: models.Country) -> str:
+        return mark_safe(f'<img src="{obj.flag.url}" height="20" style="outline: 1px solid #bcbcbc">')
+
+    get_flag_image.short_description = 'Флаг'
 
 
 admin.site.register(models.Currency, CurrencyAdmin)
