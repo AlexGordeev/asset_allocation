@@ -32,6 +32,20 @@ class StockExchange(models.Model):
         verbose_name_plural = 'Биржи'
 
 
+class Branch(models.Model):
+    """Отрасль"""
+    name = models.CharField(max_length=40, verbose_name='Наименование')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'branch'
+        ordering = ('name',)
+        verbose_name = 'Отрасль'
+        verbose_name_plural = 'Отрасли'
+
+
 class CountryGroup(models.Model):
     """Группа стран"""
     name = models.CharField(max_length=25, verbose_name='Наименование')
