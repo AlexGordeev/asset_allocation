@@ -106,3 +106,17 @@ class ShareType(models.Model):
         ordering = ('name',)
         verbose_name = 'Вид акций'
         verbose_name_plural = 'Виды акций'
+
+
+class EtfType(models.Model):
+    """Вид фондов"""
+    name = models.CharField(max_length=20, verbose_name='Наименование')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'etf_type'
+        ordering = ('name',)
+        verbose_name = 'Вид фондов'
+        verbose_name_plural = 'Виды фондов'
