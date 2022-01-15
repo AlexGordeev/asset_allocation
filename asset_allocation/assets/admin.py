@@ -19,6 +19,13 @@ class StockExchangeAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
+class ManagementCompanyAdmin(admin.ModelAdmin):
+    """Представление управляющей компании в админке"""
+    list_display = ('id', 'name')
+    list_display_links = ('id', 'name')
+    search_fields = ('name',)
+
+
 class BranchAdmin(admin.ModelAdmin):
     """Представление отрасли в админке"""
     list_display = ('id', 'name')
@@ -68,6 +75,7 @@ class EtfTypeAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Currency, CurrencyAdmin)
 admin.site.register(models.StockExchange, StockExchangeAdmin)
+admin.site.register(models.ManagementCompany, ManagementCompanyAdmin)
 admin.site.register(models.Branch, BranchAdmin)
 admin.site.register(models.CountryGroup, CountryGroupAdmin)
 admin.site.register(models.Country, CountryAdmin)
