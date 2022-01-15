@@ -78,3 +78,17 @@ class Country(models.Model):
         ordering = ('name',)
         verbose_name = 'Страна'
         verbose_name_plural = 'Страны'
+
+
+class BondType(models.Model):
+    """Вид облигаций"""
+    name = models.CharField(max_length=20, verbose_name='Наименование')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'bond_type'
+        ordering = ('name',)
+        verbose_name = 'Вид облигаций'
+        verbose_name_plural = 'Виды облигаций'
