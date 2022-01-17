@@ -59,6 +59,13 @@ class AssetTypeAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
+class AssetSubtypeAdmin(admin.ModelAdmin):
+    """Представление подтипа актива в админке"""
+    list_display = ('id', 'name', 'asset_type')
+    list_display_links = ('id', 'name')
+    search_fields = ('name', 'asset_type')
+
+
 admin.site.register(models.Currency, CurrencyAdmin)
 admin.site.register(models.StockExchange, StockExchangeAdmin)
 admin.site.register(models.ManagementCompany, ManagementCompanyAdmin)
@@ -66,6 +73,7 @@ admin.site.register(models.Branch, BranchAdmin)
 admin.site.register(models.CountryGroup, CountryGroupAdmin)
 admin.site.register(models.Country, CountryAdmin)
 admin.site.register(models.AssetType, AssetTypeAdmin)
+admin.site.register(models.AssetSubtype, AssetSubtypeAdmin)
 
 admin.site.site_header = 'Размещение активов'
 admin.site.site_title = 'Размещение активов'

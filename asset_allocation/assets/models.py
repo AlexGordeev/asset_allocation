@@ -106,3 +106,18 @@ class AssetType(models.Model):
         ordering = ('name',)
         verbose_name = 'Тип актива'
         verbose_name_plural = 'Типы актива'
+
+
+class AssetSubtype(models.Model):
+    """Подтип актива"""
+    name = models.CharField(max_length=30, verbose_name='Наименование')
+    asset_type = models.ForeignKey(AssetType, on_delete=models.PROTECT, verbose_name='Тип актива')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'asset_subtype'
+        ordering = ('name',)
+        verbose_name = 'Подтип актива'
+        verbose_name_plural = 'Подтипы актива'
