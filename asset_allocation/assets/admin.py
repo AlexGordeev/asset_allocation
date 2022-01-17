@@ -52,22 +52,8 @@ class CountryAdmin(admin.ModelAdmin):
     get_flag_image.short_description = 'Флаг'
 
 
-class BondTypeAdmin(admin.ModelAdmin):
-    """Представление вида облигаций в админке"""
-    list_display = ('id', 'name')
-    list_display_links = ('id', 'name')
-    search_fields = ('name',)
-
-
-class ShareTypeAdmin(admin.ModelAdmin):
-    """Представление вида акций в админке"""
-    list_display = ('id', 'name')
-    list_display_links = ('id', 'name')
-    search_fields = ('name',)
-
-
-class EtfTypeAdmin(admin.ModelAdmin):
-    """Представление вида фондов в админке"""
+class AssetTypeAdmin(admin.ModelAdmin):
+    """Представление типа актива в админке"""
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
@@ -79,9 +65,7 @@ admin.site.register(models.ManagementCompany, ManagementCompanyAdmin)
 admin.site.register(models.Branch, BranchAdmin)
 admin.site.register(models.CountryGroup, CountryGroupAdmin)
 admin.site.register(models.Country, CountryAdmin)
-admin.site.register(models.BondType, BondTypeAdmin)
-admin.site.register(models.ShareType, ShareTypeAdmin)
-admin.site.register(models.EtfType, EtfTypeAdmin)
+admin.site.register(models.AssetType, AssetTypeAdmin)
 
 admin.site.site_header = 'Размещение активов'
 admin.site.site_title = 'Размещение активов'

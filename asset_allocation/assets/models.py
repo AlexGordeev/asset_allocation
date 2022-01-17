@@ -94,43 +94,15 @@ class Country(models.Model):
         verbose_name_plural = 'Страны'
 
 
-class BondType(models.Model):
-    """Вид облигаций"""
+class AssetType(models.Model):
+    """Тип актива"""
     name = models.CharField(max_length=20, verbose_name='Наименование')
 
     def __str__(self):
         return self.name
 
     class Meta:
-        db_table = 'bond_type'
+        db_table = 'asset_type'
         ordering = ('name',)
-        verbose_name = 'Вид облигаций'
-        verbose_name_plural = 'Виды облигаций'
-
-
-class ShareType(models.Model):
-    """Вид акций"""
-    name = models.CharField(max_length=20, verbose_name='Наименование')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'share_type'
-        ordering = ('name',)
-        verbose_name = 'Вид акций'
-        verbose_name_plural = 'Виды акций'
-
-
-class EtfType(models.Model):
-    """Вид фондов"""
-    name = models.CharField(max_length=20, verbose_name='Наименование')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'etf_type'
-        ordering = ('name',)
-        verbose_name = 'Вид фондов'
-        verbose_name_plural = 'Виды фондов'
+        verbose_name = 'Тип актива'
+        verbose_name_plural = 'Типы актива'
